@@ -1,0 +1,15 @@
+[
+    {
+        "id": "1",
+        "name": "England",
+        "cities": ["London", "Manchester", "Birmingham"],
+        "countryCode": "UK"
+    },
+    {
+        "id": "2",
+        "name": "United States",
+        "cities": ["New York"],
+        "countryCode": "USA"
+    }
+    
+]

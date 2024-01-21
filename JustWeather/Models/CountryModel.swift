@@ -8,7 +8,7 @@
 import Foundation
 
 struct CountryModel: Identifiable,Codable {
-    var id = UUID()
+    var id: String
     var name:String
     var cities:[String]
     var countryCode:String

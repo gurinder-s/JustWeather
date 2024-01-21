@@ -24,10 +24,13 @@ class CountryDataService {
         }
         
         //decode the json file
-        let decoder = JSONDecoder()
-        guard let loadedCountries = try? decoder.decode([CountryModel].self, from: data) else {
-            fatalError("Failed to decode countries.json")
-        }
-        self.countries = loadedCountries
+        do {
+                let decoder = JSONDecoder()
+                let loadedCountries = try decoder.decode([CountryModel].self, from: data)
+                self.countries = loadedCountries
+            } catch {
+                print("Failed to decode countries.json: \(error)")
+            }
+        
     }
 }

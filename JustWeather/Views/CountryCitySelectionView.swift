@@ -62,5 +62,6 @@ extension CountryCitySelectionView: UITableViewDelegate {
         let selectedCountry = CountryDataService.shared.countries[indexPath.row]
         onCountrySelected?(selectedCountry)
         // Maybe notify a delegate or use a closure to communicate the selection
+        
     }
 }

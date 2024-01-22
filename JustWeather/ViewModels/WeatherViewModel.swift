@@ -1,8 +1,15 @@
-//
-//  WeatherViewModel.swift
-//  JustWeather
-//
-//  Created by G on 19/01/2024.
-//
 
 import Foundation
+
+class WeatherViewModel {
+    var weatherData: WeatherModel?
+
+    func fetchWeather(for country: CountryModel) {
+        WeatherDataService.shared.fetchWeatherData(for: country) { [weak self] weatherData in
+            DispatchQueue.main.async {
+                self?.weatherData = weatherData
+                // Notify the view to update UI
+            }
+        }
+    }
+}

@@ -10,6 +10,12 @@
         "name": "United States",
         "cities": ["New York"],
         "countryCode": "USA"
+    },
+    {
+        "id": "3",
+        "name": "Paris",
+        "cities": ["Test"],
+        "countryCode": "FR"
     }
     
 ]

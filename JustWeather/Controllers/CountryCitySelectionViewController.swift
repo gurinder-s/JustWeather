@@ -60,6 +60,11 @@ extension CountryCitySelectionViewController: UITableViewDataSource {
 extension CountryCitySelectionViewController: UITableViewDelegate {
     // Handle user selection of a country in tableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Example: Handle selection logic, like navigating to a detail view
+        let selectedCountry = viewModel.countries[indexPath.row]
+        
+        let weatherViewController = WeatherViewController()
+        weatherViewController.selectedLocation = selectedCountry
+        
+        navigationController?.pushViewController(weatherViewController, animated: true)
     }
 }

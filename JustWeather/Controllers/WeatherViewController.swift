@@ -10,4 +10,20 @@ import UIKit
 class WeatherViewController: UIViewController {
     var selectedLocation: CountryModel?
     private var weatherView = WeatherView()
+    private var viewModel = WeatherViewModel()
+    
+    override func viewDidLoad() {
+            super.viewDidLoad()
+            view.addSubview(weatherView)
+
+            if let country = selectedLocation {
+                viewModel.fetchWeather(for: country)
+            }
+        }
+    
+    private func updateWeatherDisplay() {
+            if let weatherData = viewModel.weatherData {
+               
+            }
+        }
 }

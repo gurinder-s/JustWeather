@@ -7,4 +7,7 @@
 // Need to recieve the selected city and fetch weather details for that city
 import Foundation
 import UIKit
-class WeatherViewController: UIViewController {}
+class WeatherViewController: UIViewController {
+    var selectedLocation: CountryModel?
+    private var weatherView = WeatherView()
+}

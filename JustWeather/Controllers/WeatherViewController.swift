@@ -1,29 +1,33 @@
-//
-//  WeatherViewController.swift
-//  JustWeather
-//
-//  Created by G on 19/01/2024.
-//
-// Need to recieve the selected city and fetch weather details for that city
 import Foundation
 import UIKit
+
 class WeatherViewController: UIViewController {
     var selectedLocation: CountryModel?
     private var weatherView = WeatherView()
-    private var viewModel = WeatherViewModel()
-    
-    override func viewDidLoad() {
-            super.viewDidLoad()
-            view.addSubview(weatherView)
 
-            if let country = selectedLocation {
-                viewModel.fetchWeather(for: country)
+    private var viewModel = WeatherViewModel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupWeatherView()
+        
+        if let country = selectedLocation {
+            viewModel.fetchWeather(for: country) { [weak self] in
+                self?.updateWeatherDisplay()
             }
         }
+    }
+
+    private func setupWeatherView() {
+        weatherView.backgroundColor = .white // Ensure the background color is set
+        weatherView.frame = view.bounds // Set the frame of the weatherView to match the view controller's view
+        view.addSubview(weatherView)
+    }
     
     private func updateWeatherDisplay() {
-            if let weatherData = viewModel.weatherData {
-               
-            }
+        if let weatherData = viewModel.weatherData {
+            weatherView.displayWeather(weatherData)
         }
+    }
 }
